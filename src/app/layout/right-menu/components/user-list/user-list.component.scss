@@ -1,0 +1,80 @@
+@import "app/shared/styles/variables.scss";
+
+.user-list-container,
+.department-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  padding-top: 1rem;
+  .user-circle-wrapper,
+  .depat-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    .name-wrapper,
+    .circle-wrapper {
+      width: 42px;
+      height: 42px;
+      background: $dark-grey;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+
+      &:hover {
+        background-color: $dark-blue;
+      }
+
+      p {
+        text-transform: uppercase;
+        font-family: $regular;
+        color: $dark-blue;
+      }
+
+      .online-status {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+        right: 0px;
+        bottom: 15px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border: 1px solid $white;
+
+        &.active {
+          background-color: $green;
+        }
+
+        &.unactive {
+          background-color: $red;
+        }
+      }
+    }
+    .name-wrapper:hover p {
+      color: $white;
+    }
+    .circle-wrapper:hover p {
+      color: $white;
+    }
+    .full-name {
+      font-size: 10px;
+      color: $dark-blue;
+      text-align: center;
+      font-family: $medium;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.department-container {
+  position: absolute;
+  bottom: 0;
+  border-top: 1px solid $Grey-border-Nav;
+}

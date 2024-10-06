@@ -1,0 +1,15 @@
+@import "app/shared/styles/variables.scss";
+
+section {
+  padding: 20px;
+
+  .header {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .header {
+    margin-bottom: 20px !important;
+  }
+}

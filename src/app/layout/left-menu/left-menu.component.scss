@@ -1,0 +1,23 @@
+@import "app/shared/styles/variables.scss";
+
+.title {
+  background: $gradient-main;
+  padding: 0.313rem 1.313rem;
+  display: flex;
+  align-items: center;
+  gap: 1.188rem;
+  height: 3.75rem;
+  .name {
+    font-size: $font-size-md;
+    color: $white;
+    font-family: "Roc-Grotesk bold";
+  }
+}
+.menu-desc {
+  display: flex;
+  width: 100%;
+
+  app-expandable-menu {
+    width: calc(100% - 72px);
+  }
+}

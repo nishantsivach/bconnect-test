@@ -1,0 +1,44 @@
+@import "app/shared/styles/variables.scss";
+
+.right-side-nav {
+  height: 100vh;
+  border-left: 1px solid var(--Grey-border-Nav, #d8d8d8);
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.563rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 8px;
+  height: 60px;
+}
+.circle-container {
+  width: 42px;
+  height: 42px;
+  background: $dark-grey;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 16px;
+
+  &:hover {
+    background-color: #131464;
+  }
+}
+.name {
+  transition: filter 0.3s ease;
+}
+.circle-container:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.user-container {
+  height: calc(100vh - 60px);
+  position: relative;
+}

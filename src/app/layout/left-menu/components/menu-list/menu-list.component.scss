@@ -1,0 +1,143 @@
+@import "app/shared/styles/variables.scss";
+
+.menu-icon-container {
+  width: 4.5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+.container-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.seperator {
+  border-bottom: 1px solid #d8d8d8;
+  padding-bottom: 10px;
+}
+.icon-container {
+  width: 2.625rem;
+  height: 2.625rem;
+  background: $dark-grey;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $dark-blue;
+  }
+
+  &:hover .icon {
+    filter: brightness(0) saturate(100%) invert(80%);
+  }
+}
+.icon {
+  transition: filter 0.3s ease;
+}
+.icon-container:hover img {
+  filter: brightness(0) invert(1);
+}
+
+section {
+  position: relative;
+  height: 100%;
+}
+
+.sound-wrapper {
+  position: absolute;
+  bottom: 85px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .icon-wrapper {
+    width: 42px;
+    height: 42px;
+    background: $dark-grey;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover {
+      background-color: $dark-blue;
+    }
+  }
+}
+.icon-wrapper:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.name-wrapper {
+  border-top: 1px solid #d8d8d8;
+  padding: 12px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  .circle-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .first-letter {
+      width: 42px;
+      height: 42px;
+      background: $dark-grey;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+
+      p {
+        font-size: $font-size-md;
+        font-family: $regular;
+        color: $dark-blue;
+      }
+      &:hover {
+        background-color: $dark-blue;
+      }
+    }
+    .first-letter:hover p {
+      color: $white;
+    }
+  }
+  span {
+    font-size: 10px;
+    display: flex;
+    color: $dark-blue;
+    justify-content: center;
+    width: 100%;
+    font-family: $medium;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .icon-container {
+    width: 2.375rem;
+    height: 2.375rem;
+  }
+  .seperator {
+    padding-bottom: 5px;
+  }
+
+  .sound-wrapper {
+    .icon-wrapper {
+      width: 2.375rem;
+      height: 2.375rem;
+    }
+  }
+
+  .name-wrapper {
+    .circle-wrapper {
+      .first-letter {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  }
+}

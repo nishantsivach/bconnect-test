@@ -1,0 +1,15 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+}
+
+.left-menu {
+  width: 272px;
+}
+.right-menu {
+  width: 72px;
+}
+
+.content-container {
+  flex-grow: 1;
+}

@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "Roc-Grotesk light";
+  src: url("assets/fonts/Kostic\ -\ Roc\ Grotesk\ Light.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roc-Grotesk bold";
+  src: url("assets/fonts/Kostic\ -\ Roc\ Grotesk\ Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roc-Grotesk medium";
+  src: url("assets/fonts/Kostic\ -\ Roc\ Grotesk\ Medium.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roc-Grotesk regular";
+  src: url("assets/fonts/Kostic\ -\ Roc\ Grotesk\ Regular.woff2")
+    format("woff2");
+  font-display: swap;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}

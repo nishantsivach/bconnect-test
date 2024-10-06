@@ -1,0 +1,135 @@
+<div class="expandable-wrapper">
+  <div class="organization">
+    <p class="select-org">Select organization</p>
+    <div class="drop-down">
+      <web-select
+        [borderRadius]="'6px'"
+        [options]="organizationsOptions"
+        [fontsize]="'14px'"
+        [fontFamily]="'Roc-Grotesk regular'"
+      ></web-select>
+    </div>
+    <div class="organization-setting">
+      <div class="setting-icon">
+        <img src="/assets/icons/settings.svg" alt="setting-icon" />
+      </div>
+      <div class="setting-text">
+        <p>Organization settings</p>
+      </div>
+    </div>
+  </div>
+  <div class="account-setting-wrapper">
+    <div class="account-wrapper">
+      <p class="account-select">Select account</p>
+      <div class="drop-down">
+        <web-select
+          [borderRadius]="'6px'"
+          [options]="accountOptions"
+          [fontsize]="'14px'"
+          [fontFamily]="'Roc-Grotesk regular'"
+          [value]="'2'"
+        ></web-select>
+      </div>
+      <div class="acoount-container">
+        <web-detail
+          [detailTitle]="'Account Info'"
+          [color]="'#04086A'"
+          [fontFamily]="'Roc-Grotesk regular'"
+        >
+          <img
+            slot="icon-summary"
+            src="/assets/icons/information.svg"
+            alt="information-icon"
+          />
+          <div class="detail-content">
+            <p>option 1</p>
+            <p>option 1</p>
+          </div>
+        </web-detail>
+      </div>
+      <div class="knowledge-center">
+        <web-detail
+          [detailTitle]="'Knowledge Center'"
+          [color]="'#04086A'"
+          [fontFamily]="'Roc-Grotesk regular'"
+        >
+          <img
+            slot="icon-summary"
+            src="/assets/icons/small-Knowledgebase.svg"
+            alt="knowledge-icon"
+          />
+
+          <div class="detail-content">
+            <p>No option</p>
+          </div>
+        </web-detail>
+      </div>
+      <div class="automation">
+        <div class="automation-icon">
+          <img src="/assets/icons/automation.svg" alt="automation-icon" />
+        </div>
+        <div class="automation-text">
+          <p>Automation</p>
+        </div>
+      </div>
+    </div>
+    <div class="setting-wrapper">
+      <p class="setting-text">Settings</p>
+      @for (item of settingsItems; track $index) {
+      <div class="setting-container">
+        <div class="setting-icon">
+          <img [src]="item.icon" alt="settings-icon" />
+        </div>
+        <div class="setting-icon-name">
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  <div class="admin-wrapper">
+    <p class="admin-text">Admin</p>
+    <div class="user-content">
+      <web-detail
+        [detailTitle]="'Users'"
+        [color]="'#04086A'"
+        [fontFamily]="'Roc-Grotesk regular'"
+      >
+        <img
+          slot="icon-summary"
+          src="/assets/icons/Contact-card.svg"
+          alt="contact-icon"
+        />
+
+        <div class="detail-content">
+          <p>No option</p>
+        </div>
+      </web-detail>
+    </div>
+    <div class="layout-content">
+      <web-detail
+        [detailTitle]="'Layout'"
+        [color]="'#04086A'"
+        [fontFamily]="'Roc-Grotesk regular'"
+      >
+        <img
+          slot="icon-summary"
+          src="/assets/icons/dashboard.svg"
+          alt="dashboard-icon"
+        />
+
+        <div class="detail-content">
+          <p>No option</p>
+        </div>
+      </web-detail>
+    </div>
+    <div class="language-content-wrapper">
+      <div class="lang-icon">
+        <img src="/assets/icons/language.svg" alt="automation-icon" />
+      </div>
+      <div class="lang-text">
+        <p>Languages</p>
+      </div>
+    </div>
+  </div>
+</div>

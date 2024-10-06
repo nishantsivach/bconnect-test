@@ -1,0 +1,260 @@
+@import "app/shared/styles/variables.scss";
+
+.tabs-wrapper {
+  border: 1px solid $Grey-border-Nav;
+  background-color: $light-grey;
+  border-radius: 8px 8px 0px 0px;
+  display: flex;
+  width: 100%;
+  .tabs {
+    width: 35%;
+    padding: 24px;
+    .channel-select {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      height: 50px;
+
+      .select-label {
+        p {
+          color: #212121;
+          opacity: 0.7;
+          font-size: $font-size-sm;
+          font-family: $medium;
+        }
+      }
+      .mutliple-channel {
+        display: flex;
+        gap: 20px;
+        height: 100%;
+        .channel-icon-container {
+          padding: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          border: 1px solid #d8d8d8;
+          cursor: pointer;
+          position: relative;
+          .online-status {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            right: 0px;
+            bottom: 15px;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+
+            &.active {
+              background-color: $green;
+              border: 2px solid $light-green;
+            }
+
+            &.unactive {
+              background-color: $red;
+              border: 2px solid $light-red;
+            }
+          }
+        }
+
+        .active-tab {
+          border: 2px solid $dark-blue;
+          box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+  .tabs-content {
+    border-left: 1px solid $Grey-border-Nav;
+    padding: 24px;
+    width: 65%;
+
+    .tab-content-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 44px;
+      .channel-name-wrapper {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        .channel-icon {
+          padding: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 4px;
+          border: 1px solid #d8d8d8;
+        }
+        .channel-name {
+          color: $black;
+          font-size: $font-size-md;
+          font-family: $regular;
+        }
+      }
+    }
+
+    .form {
+      .protected-input-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $Grey-border-Nav;
+        .account,
+        .authentication {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 70%;
+
+          .account-sid-label,
+          .auth-token-label {
+            color: #212121;
+            opacity: 0.7;
+            font-size: $font-size-sm;
+            font-family: $medium;
+          }
+
+          .sid-input,
+          .auth-input {
+            width: 200px;
+          }
+        }
+      }
+
+      .phone-details {
+        padding: 24px 0px;
+        .contact-channel-detail {
+          display: flex;
+          gap: 24px;
+          margin-bottom: 24px;
+          .sms-channel {
+            display: flex;
+            padding: 8px;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid $Grey-border-Nav;
+            border-radius: 4px;
+            width: 105px;
+
+            .sms-text {
+              color: $black;
+              font-size: $font-size-sm;
+              font-family: $regular;
+            }
+            .check-box {
+              input[type="checkbox"] {
+                border: 2px solid $Grey-border-Nav;
+                accent-color: $dark-blue;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .whatsapp-channel {
+            display: flex;
+            padding: 8px;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid $Grey-border-Nav;
+            border-radius: 4px;
+            width: 141px;
+
+            .whatsapp-text {
+              color: $black;
+              font-size: $font-size-sm;
+              font-family: $regular;
+            }
+
+            .check-box {
+              input[type="checkbox"] {
+                border: 2px solid $Grey-border-Nav;
+                accent-color: $dark-blue;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .delay {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid $Grey-border-Nav;
+            border-radius: 4px;
+            width: 118px;
+            .delay-input {
+              padding: 8px;
+              input[type="text"] {
+                width: 80%;
+                border: none;
+                outline: none;
+              }
+              input[type="text"]::placeholder {
+                color: $black;
+                opacity: 1;
+              }
+            }
+            .seconds {
+              border-left: 1px solid #e0e0e0;
+              background: rgba(224, 224, 224, 0.3);
+              height: 100%;
+              display: flex;
+              align-items: center;
+              p {
+                color: $black;
+                font-size: $font-size-xxs;
+                font-family: $regular;
+                padding: 8px;
+              }
+            }
+          }
+        }
+
+        .message-container {
+          display: flex;
+          gap: 20px;
+          width: 100%;
+
+          .online-message-container {
+            width: 50%;
+            label {
+              color: #212121;
+              opacity: 0.7;
+              font-size: $font-size-sm;
+              font-family: $medium;
+              padding-bottom: 4px;
+            }
+          }
+          .offline-message-container {
+            width: 50%;
+            label {
+              color: #212121;
+              opacity: 0.7;
+              font-size: $font-size-sm;
+              font-family: $medium;
+              padding-bottom: 4px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.number-list {
+  margin-bottom: 20px;
+}
+.form-save-btn {
+  border: 1px solid $Grey-border-Nav;
+  border-top: none;
+  border-radius: 0px 0px 8px 8px;
+  .btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,61 @@
+@import "app/shared/styles/variables.scss";
+
+.list-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid $Grey-border-Nav;
+  border-bottom: 1px solid $Grey-border-Nav;
+  padding: 12px;
+  .phone-number {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .country-flag {
+      display: flex;
+      align-items: center;
+    }
+    .number {
+      background: #deeafd;
+      padding: 4px 12px;
+      color: #323232;
+      font-size: $font-size-sm;
+      font-family: $medium;
+    }
+  }
+  .channel-icons {
+    display: flex;
+    align-items: center;
+
+    .icons {
+      display: flex;
+      gap: 5px;
+    }
+  }
+
+  .online-message-wrapper,
+  .offline-message-wrapper {
+    .messages {
+      p {
+        font-size: $font-size-sm;
+        color: $black;
+        opacity: 0.5;
+        font-family: $regular;
+      }
+    }
+  }
+  .delay {
+    span {
+      font-size: $font-size-sm;
+      color: $black;
+      opacity: 0.5;
+      font-family: $regular;
+    }
+    p {
+      font-size: $font-size-xxs;
+      color: $black;
+      font-family: $regular;
+    }
+  }
+}

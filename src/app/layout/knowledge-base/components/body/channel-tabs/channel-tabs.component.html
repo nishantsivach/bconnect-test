@@ -1,0 +1,182 @@
+<section>
+  <div class="tabs-wrapper">
+    <div class="tabs">
+      <div class="channel-select">
+        <div class="select-label">
+          <p>Select channel</p>
+        </div>
+        <div class="mutliple-channel">
+          @for (item of channelsItem; track $index) {
+          <web-tab [active]="currentIndex" (click)="handleTabs(item.id)">
+            <div
+              class="channel-icon-container"
+              [ngClass]="{ 'active-tab': item.id == currentIndex }"
+            >
+              <img [src]="item.icon" alt="channels-icon" />
+              <div
+                [ngClass]="{
+                  active: item.status,
+                  unactive: !item.status,
+                  'online-status': true
+                }"
+              ></div>
+            </div>
+          </web-tab>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="tabs-content">
+      <web-tab-panel [active]="currentIndex">
+        <div class="tab-content-header">
+          <div class="channel-name-wrapper">
+            <div class="channel-icon">
+              <img src="/assets/icons/whatsapp.svg" alt="icon" />
+            </div>
+            <div class="channel-name">Messaging</div>
+          </div>
+          <div class="toogle">
+            <web-toggle
+              [width]="'2.125rem'"
+              [checked]="true"
+              [height]="'1.125rem'"
+              [thumbSize]="'1.125rem'"
+            ></web-toggle>
+          </div>
+        </div>
+        <div class="form">
+          <form>
+            <div class="protected-input-wrapper">
+              <div class="account">
+                <div class="account-sid-label">
+                  <p>Account SID</p>
+                </div>
+                <div class="sid-input">
+                  <web-input
+                    [padding]="'8px 8px 8px 12px'"
+                    [disabled]="true"
+                    [inputPadding]="'0px'"
+                    [value]="'AC0f50b14fd9184960338...'"
+                  ></web-input>
+                </div>
+              </div>
+              <div class="authentication">
+                <div class="auth-token-label">
+                  <p>Authentication Token</p>
+                </div>
+                <div class="auth-input">
+                  <web-input
+                    [padding]="'8px 8px 8px 12px'"
+                    [disabled]="true"
+                    [inputPadding]="'0px'"
+                    [value]="'93b80d683fab86b5a2e75...'"
+                  ></web-input>
+                </div>
+              </div>
+            </div>
+            <div class="phone-details">
+              <div class="contact-channel-detail">
+                <div class="number"></div>
+                <div class="sms-channel">
+                  <div class="sms-icon">
+                    <img src="/assets/icons/sms.svg" alt="icon" />
+                  </div>
+                  <div class="sms-text">
+                    <p>SMS</p>
+                  </div>
+                  <div class="check-box">
+                    <input type="checkbox" id="checkbox" name="sms-checkbox" />
+                  </div>
+                </div>
+                <div class="whatsapp-channel">
+                  <div class="whatsapp-icon">
+                    <img src="/assets/icons/whatsapp.svg" alt="icon" />
+                  </div>
+                  <div class="whatsapp-text">
+                    <p>WhatsApp</p>
+                  </div>
+                  <div class="check-box">
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      name="whatsapp-checkbox"
+                    />
+                  </div>
+                </div>
+                <div class="delay">
+                  <div class="delay-input">
+                    <input
+                      type="text"
+                      id="text"
+                      name="delay-time"
+                      placeholder="Delay..."
+                    />
+                  </div>
+                  <div class="seconds">
+                    <p>sec</p>
+                  </div>
+                </div>
+              </div>
+              <div class="message-container">
+                <div class="online-message-container">
+                  <label>Online message</label>
+                  <div class="online-message-input">
+                    <web-textarea
+                      [placholder]="'Enter your online message here...'"
+                    ></web-textarea>
+                  </div>
+                </div>
+                <div class="offline-message-container">
+                  <label>Offline message</label>
+                  <div class="online-message-input">
+                    <web-textarea
+                      [placholder]="'Enter your offline message here...'"
+                    ></web-textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="number-list">
+          <app-contact-list></app-contact-list>
+        </div>
+        <div class="btn">
+          <web-button
+            [pill]="false"
+            [background]="'transparent'"
+            [color]="'#04086A'"
+            [outline]="
+              '1.5px solid var(--Dark-blue, #04086A);
+'
+            "
+          >
+            <p>Add phone number</p>
+          </web-button>
+        </div>
+      </web-tab-panel>
+    </div>
+  </div>
+  <div class="form-save-btn">
+    <div class="btn-wrapper">
+      <div class="cancel-btn">
+        <web-button
+          [pill]="false"
+          [background]="'transparent'"
+          [color]="'#04086A'"
+          [outline]="
+            '1.5px solid var(--Dark-blue, #04086A);
+'
+          "
+        >
+          <p>Cancel</p>
+        </web-button>
+      </div>
+      <div class="save-btn">
+        <web-button [pill]="false">
+          <p>Save</p>
+        </web-button>
+      </div>
+    </div>
+  </div>
+</section>

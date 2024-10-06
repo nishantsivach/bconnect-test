@@ -1,0 +1,25 @@
+<div class="search-header">
+  <div class="search-container">
+    <web-input
+      [pill]="true"
+      [padding]="'4px 4px 4px 12px'"
+      [inputPadding]="'0px 0px 0px 12px'"
+      [placeholder]="'Search Channels...'"
+      [filled]="true"
+    >
+      <span class="prefix" slot="prefix">
+        <div class="search-icon">
+          <img src="/assets/icons/search.svg" alt="search-icon" />
+        </div>
+      </span>
+      <span class="suffix" slot="suffix">
+        <div class="filter-wrapper">
+          <img src="/assets/icons/filter.svg" alt="filter-icon" />
+        </div>
+      </span>
+    </web-input>
+  </div>
+  <div class="option">
+    <img src="/assets/icons/search-option.svg" alt="search-option-icon" />
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<section>
+  <div class="user-list-container">
+    <div class="user-circle-wrapper">
+      @for (item of userList; track $index) {
+      <div class="user-name-wrapper">
+        <div class="name-wrapper">
+          <p>{{ item.name.charAt(0) }}</p>
+          <div
+            class="online-status"
+            [ngClass]="{ active: item.online, unactive: !item.online }"
+          ></div>
+        </div>
+        <div class="full-name">
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="department-container">
+    <div class="depat-wrapper">
+      @for (item of departmentList; track $index) {
+      <div class="depat-name-container">
+        <div class="circle-wrapper">
+          <p>{{ item.name.charAt(0) }}</p>
+        </div>
+        <div class="full-name">
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

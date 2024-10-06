@@ -1,0 +1,20 @@
+@media screen and (max-width: 1600px) {
+  .expandable-wrapper {
+    .account-setting-wrapper {
+      height: calc(100vh - 54%);
+      overflow: auto;
+      border-bottom: 1px solid var(--Grey-border-Nav, #d8d8d8);
+      .account-wrapper {
+        padding: 10px;
+      }
+      .setting-wrapper {
+        padding: 0.625rem;
+        border-bottom: none;
+      }
+    }
+
+    .admin-wrapper {
+      padding: 0.625rem;
+    }
+  }
+}

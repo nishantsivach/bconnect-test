@@ -1,0 +1,24 @@
+<section>
+  <div class="menu-icon-container">
+    @for (item of iconList; track $index) {
+    <div [ngClass]="{ seperator: item.seperator, 'container-wrapper': true }">
+      <div class="icon-container">
+        <img [src]="item.icon" alt="menu-icon" />
+      </div>
+    </div>
+    }
+  </div>
+  <div class="sound-wrapper">
+    <div class="icon-wrapper">
+      <img src="/assets/icons/sound.svg" alt="sound-icon" />
+    </div>
+  </div>
+  <div class="name-wrapper">
+    <div class="circle-wrapper">
+      <div class="first-letter">
+        <p>N</p>
+      </div>
+    </div>
+    <span>Nishant</span>
+  </div>
+</section>
