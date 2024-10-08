@@ -8,6 +8,8 @@ class WebInput extends LitElement {
       padding:var(--padding,0px);
       display:flex;
       align-items: center;
+      background: var(--backGround, #FFF);
+
     }
     sl-input::part(input) {
       height: 100%;
@@ -27,14 +29,15 @@ class WebInput extends LitElement {
         label: { type: String },
         height: { type: Number },
         fontsize: { type: String },
-        disabled: { type: Boolean },
         value: { type: String },
         type: { type: String },
         fontfamily: { type: String },
         autofocus: { type: Boolean },
         padding: { type: String },
         disabled: { type: Boolean },
-        inputPadding: { type: String }
+        inputPadding: { type: String },
+        filled: { type: Boolean },
+        backGround: { type: String }
     };
 
     constructor() {
@@ -44,13 +47,15 @@ class WebInput extends LitElement {
         this.value = '';
         this.text = 'text'
         this.autofocus = false;
-        this.disabled = false
+        this.disabled = false;
+        this.filled = false;
     }
 
 
     connectedCallback() {
         super.connectedCallback();
     }
+
 
     firstUpdated() {
         if (this.autofocus) {
@@ -67,7 +72,6 @@ class WebInput extends LitElement {
         this.value = value;
         this.dispatchValueChange(value, 'inputChange');
     }
-
 
 
     dispatchValueChange(value, event) {
@@ -96,11 +100,13 @@ class WebInput extends LitElement {
         type=${this.type}
         label=${this.label}
         value=${this.value}
-        style="--input-height: ${this.height + 2}px; --fontsize: ${this.fontsize || '14px'};--fontfamily:${this.fontfamily};--padding:${this.padding};--inputPadding:${this.inputPadding}"
+        style="--input-height: ${this.height + 2}px; --fontsize: ${this.fontsize || '14px'};--fontfamily:${this.fontfamily};
+        --padding:${this.padding};--inputPadding:${this.inputPadding};--backGround:${this.backGround}"
         size=${this.size || "medium"}
         placeholder=${this.placeholder}
         ?pill=${this.pill}
         ?autofocus=${this.autofocus}
+        ?filled=${this.filled}
         @input=${this.handleInput} 
         @blur=${this.handBlurleInput} 
         @sl-focus =${this.handleFocus}
@@ -112,13 +118,13 @@ class WebInput extends LitElement {
     }
     handBlurleInput(event) {
         const value = event.target.value;
-        console.log("blur", value)
+        // console.log("blur", value)
         this.dispatchValueChange(value, 'blurEvent');
     }
 
     handleFocus(event) {
         const value = event.target.value;
-        console.log("focus", value)
+        // console.log("focus", value)
     }
 }
 

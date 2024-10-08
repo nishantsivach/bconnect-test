@@ -2,7 +2,11 @@
   <div class="menu-icon-container">
     @for (item of iconList; track $index) {
     <div [ngClass]="{ seperator: item.seperator, 'container-wrapper': true }">
-      <div class="icon-container">
+      <div
+        class="icon-container"
+        [ngClass]="{ aciveItem: currentItem == item.id }"
+        (click)="handleMenuItem(item.id)"
+      >
         <img [src]="item.icon" alt="menu-icon" />
       </div>
     </div>
@@ -17,6 +21,7 @@
     <div class="circle-wrapper">
       <div class="first-letter">
         <p>N</p>
+        <div class="online-status"></div>
       </div>
     </div>
     <span>Nishant</span>

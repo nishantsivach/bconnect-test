@@ -1,23 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { PhoneNumberService } from 'app/shared/services/phone-number.service';
 import { KnowledgeBaseComponent } from './knowledge-base.component';
+
 
 describe('KnowledgeBaseComponent', () => {
   let component: KnowledgeBaseComponent;
-  let fixture: ComponentFixture<KnowledgeBaseComponent>;
+  let service: PhoneNumberService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [KnowledgeBaseComponent]
-    })
-    .compileComponents();
+      imports: [
+        HttpClientModule,
+        ToastrModule.forRoot(),
+        KnowledgeBaseComponent // Import the standalone component here
+      ]
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(KnowledgeBaseComponent);
+    service = TestBed.inject(PhoneNumberService);
+
+    // Create the component instance
+    const fixture = TestBed.createComponent(KnowledgeBaseComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
   });
+
+  // Add additional tests as needed
 });

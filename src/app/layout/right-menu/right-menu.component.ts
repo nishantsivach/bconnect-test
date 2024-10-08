@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { UserListComponent } from './components/user-list/user-list.component';
 
+
 @Component({
   selector: 'app-right-menu',
   standalone: true,
@@ -10,10 +11,4 @@ import { UserListComponent } from './components/user-list/user-list.component';
 })
 export class RightMenuComponent {
 
-
-  navItem: {
-    id: number,
-    icon?: string,
-    name: string
-  }[] = []
 }

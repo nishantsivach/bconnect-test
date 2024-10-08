@@ -1,10 +1,20 @@
 @import "app/shared/styles/variables.scss";
 
+section {
+  border-top: 1px solid $Grey-border-Nav;
+  height: calc(100vh - 380px);
+  overflow: auto;
+}
+
+.form-added {
+  height: calc(100vh - 605px);
+  overflow: auto;
+}
 .list-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 20px;
-  border-top: 1px solid $Grey-border-Nav;
   border-bottom: 1px solid $Grey-border-Nav;
   padding: 12px;
   .phone-number {
@@ -15,11 +25,13 @@
     .country-flag {
       display: flex;
       align-items: center;
+      width: 24px;
+      height: 24px;
     }
     .number {
-      background: #deeafd;
+      background: $light-sky;
       padding: 4px 12px;
-      color: #323232;
+      color: $medium-black;
       font-size: $font-size-sm;
       font-family: $medium;
     }
@@ -27,6 +39,8 @@
   .channel-icons {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
 
     .icons {
       display: flex;
@@ -42,20 +56,53 @@
         color: $black;
         opacity: 0.5;
         font-family: $regular;
+        width: 130px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
       }
     }
   }
   .delay {
-    span {
-      font-size: $font-size-sm;
-      color: $black;
-      opacity: 0.5;
-      font-family: $regular;
-    }
     p {
       font-size: $font-size-xxs;
       color: $black;
       font-family: $regular;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      span {
+        font-size: $font-size-sm;
+        color: $black;
+        opacity: 0.5;
+        font-family: $regular;
+      }
     }
   }
+  .checkbox {
+    input[type="checkbox"] {
+      border: 2px solid $Grey-border-Nav;
+      accent-color: $dark-blue;
+      cursor: pointer;
+    }
+  }
+}
+
+.no-contact-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $white;
+  color: $black;
+  opacity: 0.7;
+  border-radius: 8px;
+  height: calc(100vh - 400px);
+  p {
+    font-size: $font-size-md;
+    font-family: $medium;
+  }
+}
+
+.form-visiable {
+  height: calc(100vh - 650px);
 }

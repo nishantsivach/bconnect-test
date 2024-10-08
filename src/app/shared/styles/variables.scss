@@ -1,5 +1,4 @@
 //colors
-$gradient-main: linear-gradient(55.49deg, #1509ff -13.33%, #8203a1 88.28%);
 $white: #fff;
 $dark-grey: #cccfe0;
 $black: #000;
@@ -11,6 +10,19 @@ $light-red: #f7d9d9;
 $red: #c70202;
 $Grey-border-Nav: #d8d8d8;
 $light-grey: #fcfcfc;
+$steel-blue: #4f5296;
+$medium-black: #212121;
+$silver: #e0e0e0;
+$light-sky: #deeafd;
+
+//colors linear-gradient
+$gradient-main: linear-gradient(55.49deg, #1509ff -13.33%, #8203a1 88.28%);
+$blue-linear-gradient: linear-gradient(
+    0deg,
+    rgba(4, 8, 106, 0.1) 0%,
+    rgba(4, 8, 106, 0.1) 100%
+  ),
+  #fff;
 
 //font sizes
 $font-size-xxs: 10px;

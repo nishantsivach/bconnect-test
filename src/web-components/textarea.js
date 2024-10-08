@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit';
 import '@shoelace-style/shoelace/dist/components/textarea/textarea'; // Importing Shoelace's textarea
 
 export class WebTextarea extends LitElement {
-    static styles = css`
+  static styles = css`
    
 
     sl-textarea::part(base) {
@@ -16,31 +16,46 @@ export class WebTextarea extends LitElement {
       color: #000;
       opacity:0.5
     }
-
+    sl-textarea::part(textarea){
+      font-size:14px;
+    }
   
 
     
   `;
 
-    static properties = {
-        placholder: { type: String },
-        border: { type: String }
-    };
+  static properties = {
+    placholder: { type: String },
+    border: { type: String }
+  };
 
-    constructor() {
-        super();
-        this.placholder = 'Type here...'
-    }
+  constructor() {
+    super();
+    this.placholder = 'Type here...'
+  }
 
-    render() {
-        return html`
+  handleInput(event) {
+    const value = event.target.value;
+    this.dispatchValueChange(value);
+  }
+
+  dispatchValueChange(value) {
+    this.dispatchEvent(new CustomEvent('inputChange', {
+      detail: value,
+      bubbles: true,
+      composed: true,
+    }));
+  }
+
+  render() {
+    return html`
  
-        <sl-textarea rows="2" placeholder="${this.placholder}" resize="none"
+        <sl-textarea rows="2" placeholder="${this.placholder}" resize="none" @input="${this.handleInput}"
         
         ></sl-textarea>
 
     `;
-    }
+  }
 }
 
 customElements.define('web-textarea', WebTextarea);

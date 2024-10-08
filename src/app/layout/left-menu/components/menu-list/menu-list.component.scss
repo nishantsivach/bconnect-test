@@ -31,16 +31,18 @@
   &:hover {
     background-color: $dark-blue;
   }
-
-  &:hover .icon {
-    filter: brightness(0) saturate(100%) invert(80%);
+  .icon {
+    transition: filter 0.3s ease;
   }
-}
-.icon {
-  transition: filter 0.3s ease;
 }
 .icon-container:hover img {
   filter: brightness(0) invert(1);
+}
+.aciveItem {
+  background: $dark-blue;
+  img {
+    filter: brightness(0) invert(1);
+  }
 }
 
 section {
@@ -137,6 +139,21 @@ section {
       .first-letter {
         width: 38px;
         height: 38px;
+        position: relative;
+
+        .online-status {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          position: absolute;
+          right: 0px;
+          bottom: 15px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          border: 1px solid $white;
+          background-color: $green;
+        }
       }
     }
   }

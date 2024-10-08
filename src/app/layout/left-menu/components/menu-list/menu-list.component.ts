@@ -10,6 +10,7 @@ import { NgClass } from '@angular/common';
 })
 export class MenuListComponent {
 
+  public currentItem: number = 6;
 
   iconList: {
     id: number,
@@ -65,4 +66,12 @@ export class MenuListComponent {
         seperator: true
       }
     ]
+
+  constructor() { }
+
+  ngOnInit() { }
+
+  handleMenuItem(id: number) {
+    this.currentItem = id
+  }
 }

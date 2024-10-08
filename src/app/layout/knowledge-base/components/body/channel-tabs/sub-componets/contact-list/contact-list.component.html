@@ -1,40 +1,60 @@
-<div class="list-container">
-  <div class="phone-number">
-    <div class="country-flag">
-      <img src="/assets/icons/netherlands.svg" alt="flag-icon" />
+<section [ngClass]="{ 'form-added': isFormVisible }">
+  @for (item of phoneNumberList; track $index) {
+  <div class="list-container">
+    <div class="phone-number">
+      <div class="country-flag">
+        <img [src]="item.flag" alt="flag-icon" />
+      </div>
+      <div class="number">
+        <p>{{ item.phoneNumber }}</p>
+      </div>
     </div>
-    <div class="number">
-      <p>0684726178</p>
+    <div class="channel-icons">
+      <div class="icons">
+        @if(item.sms){
+        <img src="/assets/icons/sms.svg" alt="channel-icon" />
+        } @if(item.whatsapp){
+        <img src="/assets/icons/whatsapp.svg" alt="channel-icon" />
+        }
+      </div>
+    </div>
+    <div class="online-message-wrapper">
+      <div class="messages">
+        <p [title]="item.onlineMessage">
+          {{ item.onlineMessage ? item.onlineMessage : "No online message" }}
+        </p>
+      </div>
+    </div>
+    <div class="offline-message-wrapper">
+      <div class="messages">
+        <p [title]="item.offlineMessage">
+          {{ item.offlineMessage ? item.offlineMessage : "No offline message" }}
+        </p>
+      </div>
+    </div>
+    <div class="delay">
+      <p>
+        <span>{{ item.delay ? item.delay : 0 }}</span
+        >sec delay
+      </p>
+    </div>
+    <div class="toggle">
+      <web-toggle
+        [width]="'2.125rem'"
+        [checked]="true"
+        [height]="'1.125rem'"
+        [thumbSize]="'1.125rem'"
+        [background]="'#c70202'"
+        (click)="handleSwitch($index)"
+      ></web-toggle>
+    </div>
+    <div class="checkbox">
+      <input type="checkbox" id="checkbox" name="sms-checkbox" />
     </div>
   </div>
-  <div class="channel-icons">
-    <div class="icons">
-      <img src="/assets/icons/sms.svg" alt="channel-icon" />
-      <img src="/assets/icons/whatsapp.svg" alt="channel-icon" />
-    </div>
+  } @if (phoneNumberList.length < 1) {
+  <div class="no-contact-list" [ngClass]="{ 'form-visiable': isFormVisible }">
+    <p>No contact number list</p>
   </div>
-  <div class="online-message-wrapper">
-    <div class="messages">
-      <p>No online message</p>
-    </div>
-  </div>
-  <div class="offline-message-wrapper">
-    <div class="messages">
-      <p>No offline message</p>
-    </div>
-  </div>
-  <div class="delay">
-    <p><span>0</span>sec delay</p>
-  </div>
-  <div class="toggle">
-    <web-toggle
-      [width]="'2.125rem'"
-      [checked]="true"
-      [height]="'1.125rem'"
-      [thumbSize]="'1.125rem'"
-    ></web-toggle>
-  </div>
-  <div class="checkbox">
-    <input type="checkbox" id="checkbox" name="sms-checkbox" />
-  </div>
-</div>
+  }
+</section>

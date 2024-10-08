@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChannelBodyComponent } from './channel-body.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 describe('ChannelBodyComponent', () => {
   let component: ChannelBodyComponent;
@@ -8,9 +10,9 @@ describe('ChannelBodyComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ChannelBodyComponent]
+      imports: [ChannelBodyComponent, HttpClientModule, ToastrModule.forRoot()]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ChannelBodyComponent);
     component = fixture.componentInstance;

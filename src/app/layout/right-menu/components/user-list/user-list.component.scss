@@ -78,3 +78,17 @@
   bottom: 0;
   border-top: 1px solid $Grey-border-Nav;
 }
+
+@media screen and (max-width: 1600px) {
+  .user-list-container,
+  .department-container {
+    .user-circle-wrapper,
+    .depat-wrapper {
+      .name-wrapper,
+      .circle-wrapper {
+        width: 2.375rem;
+        height: 2.375rem;
+      }
+    }
+  }
+}

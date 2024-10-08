@@ -1,6 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import '../web-components/button'
+import '../web-components/index'
 import { LeftMenuComponent } from './layout/left-menu/left-menu.component';
 import { RightMenuComponent } from './layout/right-menu/right-menu.component';
 

@@ -1,5 +1,4 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import '../../../../../../web-components/input'
 @Component({
   selector: 'app-search',
   standalone: true,

@@ -15,16 +15,12 @@
       padding: 4px 12px;
       border-radius: 4px;
       color: $light-black;
-      background: var(
-        --Blue-10,
-        linear-gradient(
-          0deg,
-          rgba(4, 8, 106, 0.1) 0%,
-          rgba(4, 8, 106, 0.1) 100%
-        ),
-        #fff
-      );
+      background: $blue-linear-gradient;
       font-family: $medium;
+      font-size: $font-size-xs;
+      display: flex;
+      align-items: center;
+      line-height: 0;
     }
     .status {
       padding: 4px 12px;
@@ -32,6 +28,10 @@
       background: rgba(45, 154, 33, 0.15);
       color: $green;
       font-family: $medium;
+      font-size: $font-size-xs;
+      display: flex;
+      align-items: center;
+      line-height: 0;
     }
   }
 }

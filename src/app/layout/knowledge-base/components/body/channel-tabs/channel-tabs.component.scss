@@ -17,7 +17,7 @@
 
       .select-label {
         p {
-          color: #212121;
+          color: $medium-black;
           opacity: 0.7;
           font-size: $font-size-sm;
           font-family: $medium;
@@ -33,7 +33,7 @@
           justify-content: center;
           align-items: center;
           border-radius: 4px;
-          border: 1px solid #d8d8d8;
+          border: 1px solid $Grey-border-Nav;
           cursor: pointer;
           position: relative;
           .online-status {
@@ -113,7 +113,7 @@
 
           .account-sid-label,
           .auth-token-label {
-            color: #212121;
+            color: $medium-black;
             opacity: 0.7;
             font-size: $font-size-sm;
             font-family: $medium;
@@ -123,6 +123,10 @@
           .auth-input {
             width: 200px;
           }
+          // .disable-input {
+          //   opacity: 0.7;
+          //   pointer-events: none;
+          // }
         }
       }
 
@@ -132,6 +136,74 @@
           display: flex;
           gap: 24px;
           margin-bottom: 24px;
+          justify-content: space-between;
+          .number-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .phn-number-dropdown {
+              display: flex;
+              align-items: center;
+              ::ng-deep.ipv_selected-item {
+                border: 1px solid $Grey-border-Nav;
+                border-radius: 4px 0px 0px 4px;
+                padding: 8px;
+              }
+
+              .ng-select-container {
+                width: 100px;
+                font-size: 14px;
+                display: flex;
+                width: 50%;
+                .option-items-ng {
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+                }
+                .number-input {
+                  input {
+                    padding: 8px;
+                    border: 1px solid $Grey-border-Nav;
+                    border-radius: 0px 4px 4px 0px;
+                    border-left: none;
+                    height: 40px;
+                  }
+                  input::-webkit-outer-spin-button,
+                  input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                  }
+                }
+              }
+              ::ng-deep.ng-select.ng-select-single
+                .ng-select-container
+                .ng-value-container
+                .ng-value {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px;
+                img {
+                  width: 20px;
+                  height: 20px;
+                  font-size: 14px;
+                }
+              }
+              ::ng-deep.ng-select .ng-select-container {
+                border-radius: 6px;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                height: 40px;
+              }
+            }
+            .error {
+              p {
+                color: $red;
+                font-size: $font-size-xs;
+                font-family: $medium;
+              }
+            }
+          }
+
           .sms-channel {
             display: flex;
             padding: 8px;
@@ -140,6 +212,7 @@
             border: 1px solid $Grey-border-Nav;
             border-radius: 4px;
             width: 105px;
+            height: 40px;
 
             .sms-text {
               color: $black;
@@ -163,6 +236,7 @@
             border: 1px solid $Grey-border-Nav;
             border-radius: 4px;
             width: 141px;
+            height: 40px;
 
             .whatsapp-text {
               color: $black;
@@ -186,6 +260,7 @@
             border: 1px solid $Grey-border-Nav;
             border-radius: 4px;
             width: 118px;
+            height: 40px;
             .delay-input {
               padding: 8px;
               input[type="text"] {
@@ -199,7 +274,7 @@
               }
             }
             .seconds {
-              border-left: 1px solid #e0e0e0;
+              border-left: 1px solid $silver;
               background: rgba(224, 224, 224, 0.3);
               height: 100%;
               display: flex;
@@ -222,7 +297,7 @@
           .online-message-container {
             width: 50%;
             label {
-              color: #212121;
+              color: $medium-black;
               opacity: 0.7;
               font-size: $font-size-sm;
               font-family: $medium;
@@ -232,13 +307,31 @@
           .offline-message-container {
             width: 50%;
             label {
-              color: #212121;
+              color: $medium-black;
               opacity: 0.7;
               font-size: $font-size-sm;
               font-family: $medium;
               padding-bottom: 4px;
             }
           }
+        }
+      }
+    }
+
+    .coming-soon-container {
+      background-color: $white;
+      border-radius: 8px;
+      height: calc(100vh - 400px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .comming-soon {
+        p {
+          color: $black;
+          opacity: 0.7;
+          font-size: $font-size-md;
+          font-family: $medium;
         }
       }
     }

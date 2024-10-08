@@ -1,16 +1,17 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import '../../../../../web-components/select'
-import '../../../../../web-components/details'
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-expandable-menu',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './expandable-menu.component.html',
   styleUrls: ['./expandable-menu.component.scss', './media-queries.scss']
 })
 export class ExpandableMenuComponent {
+
+  settingActiveItem: number = 2
 
   settingsItems: {
     id: number,
@@ -76,5 +77,13 @@ export class ExpandableMenuComponent {
         name: 'Bconnect.chat'
       }
     ]
+
+  constructor() { }
+
+  ngOnInit() { }
+
+  handleSettingItem(id: number) {
+    this.settingActiveItem = id
+  }
 
 }

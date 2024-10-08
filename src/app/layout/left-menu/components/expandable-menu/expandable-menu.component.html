@@ -76,7 +76,11 @@
     <div class="setting-wrapper">
       <p class="setting-text">Settings</p>
       @for (item of settingsItems; track $index) {
-      <div class="setting-container">
+      <div
+        class="setting-container"
+        [ngClass]="{ 'active-item': settingActiveItem == item.id }"
+        (click)="handleSettingItem(item.id)"
+      >
         <div class="setting-icon">
           <img [src]="item.icon" alt="settings-icon" />
         </div>

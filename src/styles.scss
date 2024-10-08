@@ -1,3 +1,6 @@
+@import "@ng-select/ng-select/themes/default.theme.css";
+@import "ngx-toastr/toastr";
+
 @font-face {
   font-family: "Roc-Grotesk light";
   src: url("assets/fonts/Kostic\ -\ Roc\ Grotesk\ Light.woff2") format("woff2");
@@ -27,4 +30,11 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+}
+
+.toast-class {
+  font-size: 14px;
+  font-family: "Roc-Grotesk medium";
+  padding: 20px;
+  color: #fff;
 }

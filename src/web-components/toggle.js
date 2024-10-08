@@ -46,7 +46,6 @@ class WebToggle extends LitElement {
     }
 
     handleSwitchChange(event) {
-        console.log("check-value", event)
         event.stopPropagation();
         const switchElement = event.target;
         const checked = switchElement.checked;

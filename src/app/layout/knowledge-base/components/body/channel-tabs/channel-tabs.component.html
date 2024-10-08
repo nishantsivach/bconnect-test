@@ -7,7 +7,10 @@
         </div>
         <div class="mutliple-channel">
           @for (item of channelsItem; track $index) {
-          <web-tab [active]="currentIndex" (click)="handleTabs(item.id)">
+          <web-tab
+            [active]="currentIndex"
+            (click)="handleTabs(item.id, item.icon)"
+          >
             <div
               class="channel-icon-container"
               [ngClass]="{ 'active-tab': item.id == currentIndex }"
@@ -31,7 +34,14 @@
         <div class="tab-content-header">
           <div class="channel-name-wrapper">
             <div class="channel-icon">
-              <img src="/assets/icons/whatsapp.svg" alt="icon" />
+              <img
+                [src]="
+                  selectedChannelImageUrl
+                    ? selectedChannelImageUrl
+                    : '/assets/icons/whatsapp.svg'
+                "
+                alt="icon"
+              />
             </div>
             <div class="channel-name">Messaging</div>
           </div>
@@ -41,22 +51,26 @@
               [checked]="true"
               [height]="'1.125rem'"
               [thumbSize]="'1.125rem'"
+              (switchChange)="handleChannelToggle($event)"
             ></web-toggle>
           </div>
         </div>
+        @if (currentIndex == 1) { @if (isAddPhoneFieldVisiable) {
         <div class="form">
-          <form>
+          <form [formGroup]="phoneNumberForm">
             <div class="protected-input-wrapper">
               <div class="account">
                 <div class="account-sid-label">
                   <p>Account SID</p>
                 </div>
-                <div class="sid-input">
+                <div class="sid-input" [ngClass]="{ 'disable-input': true }">
                   <web-input
                     [padding]="'8px 8px 8px 12px'"
                     [disabled]="true"
                     [inputPadding]="'0px'"
-                    [value]="'AC0f50b14fd9184960338...'"
+                    formControlName="accountSID"
+                    [value]="phoneNumberForm.get('accountSID')?.value"
+                    [placeholder]="'Enter account sid...'"
                   ></web-input>
                 </div>
               </div>
@@ -64,19 +78,76 @@
                 <div class="auth-token-label">
                   <p>Authentication Token</p>
                 </div>
-                <div class="auth-input">
+                <div class="auth-input" [ngClass]="{ 'disable-input': true }">
                   <web-input
                     [padding]="'8px 8px 8px 12px'"
                     [disabled]="true"
                     [inputPadding]="'0px'"
-                    [value]="'93b80d683fab86b5a2e75...'"
+                    formControlName="authToken"
+                    [placeholder]="'Enter auth token...'"
+                    [value]="phoneNumberForm.get('authToken')?.value"
                   ></web-input>
                 </div>
               </div>
             </div>
             <div class="phone-details">
               <div class="contact-channel-detail">
-                <div class="number"></div>
+                <div class="number-container">
+                  <div class="phn-number-dropdown">
+                    <div class="custom-select">
+                      <div class="ng-select-container">
+                        <ng-select
+                          [items]="countries"
+                          bindLabel="dialCode"
+                          placeholder="Select Organization"
+                          [formControlName]="'dialCode'"
+                          [clearable]="false"
+                          [searchable]="false"
+                        >
+                          <ng-template ng-option-tmp let-item="item">
+                            <div class="option-items-ng">
+                              <img
+                                [src]="item.flag"
+                                alt="{{ item.name }}"
+                                width="20"
+                                height="14"
+                              />
+                              {{ item.dialCode }}
+                            </div>
+                          </ng-template>
+
+                          <!-- Template for displaying the selected value -->
+                          <ng-template ng-label-tmp let-item="item">
+                            @if (item) {
+                            <img
+                              [src]="item.flag"
+                              alt="{{ item.name }}"
+                              width="20"
+                              height="14"
+                            />
+                            }
+                            {{ item?.dialCode }}
+                          </ng-template>
+                        </ng-select>
+                        <div class="number-input">
+                          <input
+                            type="number"
+                            formControlName="number"
+                            id="number"
+                            name="phn-number"
+                            placeholder="Enter your number..."
+                            (blur)="checkValidity()"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  @if (isNumberValid == false) {
+                  <div class="error">
+                    <p>Number is invalid</p>
+                  </div>
+                  }
+                </div>
                 <div class="sms-channel">
                   <div class="sms-icon">
                     <img src="/assets/icons/sms.svg" alt="icon" />
@@ -85,7 +156,12 @@
                     <p>SMS</p>
                   </div>
                   <div class="check-box">
-                    <input type="checkbox" id="checkbox" name="sms-checkbox" />
+                    <input
+                      type="checkbox"
+                      formControlName="smsCheckbox"
+                      id="checkbox"
+                      name="sms-checkbox"
+                    />
                   </div>
                 </div>
                 <div class="whatsapp-channel">
@@ -99,6 +175,7 @@
                     <input
                       type="checkbox"
                       id="checkbox"
+                      formControlName="whatsappCheckbox"
                       name="whatsapp-checkbox"
                     />
                   </div>
@@ -110,6 +187,7 @@
                       id="text"
                       name="delay-time"
                       placeholder="Delay..."
+                      formControlName="delayTime"
                     />
                   </div>
                   <div class="seconds">
@@ -117,12 +195,14 @@
                   </div>
                 </div>
               </div>
+              @if (phoneNumberForm.get('whatsappCheckbox')?.value) {
               <div class="message-container">
                 <div class="online-message-container">
                   <label>Online message</label>
                   <div class="online-message-input">
                     <web-textarea
                       [placholder]="'Enter your online message here...'"
+                      (inputChange)="handleTextareaInputOnline($event)"
                     ></web-textarea>
                   </div>
                 </div>
@@ -131,13 +211,16 @@
                   <div class="online-message-input">
                     <web-textarea
                       [placholder]="'Enter your offline message here...'"
+                      (inputChange)="handleTextareaInputOffline($event)"
                     ></web-textarea>
                   </div>
                 </div>
               </div>
+              }
             </div>
           </form>
         </div>
+        }
         <div class="number-list">
           <app-contact-list></app-contact-list>
         </div>
@@ -150,13 +233,22 @@
               '1.5px solid var(--Dark-blue, #04086A);
 '
             "
+            (click)="addPhoneNumber()"
           >
             <p>Add phone number</p>
           </web-button>
         </div>
+        } @else{
+        <div class="coming-soon-container">
+          <div class="comming-soon">
+            <p>Channel Comming Soon</p>
+          </div>
+        </div>
+        }
       </web-tab-panel>
     </div>
   </div>
+  @if (currentIndex == 1) {
   <div class="form-save-btn">
     <div class="btn-wrapper">
       <div class="cancel-btn">
@@ -173,10 +265,15 @@
         </web-button>
       </div>
       <div class="save-btn">
-        <web-button [pill]="false">
+        <web-button
+          [pill]="false"
+          (click)="savePhnNumber()"
+          [disabled]="!phoneNumberForm.get('number')?.value || !isNumberValid"
+        >
           <p>Save</p>
         </web-button>
       </div>
     </div>
   </div>
+  }
 </section>

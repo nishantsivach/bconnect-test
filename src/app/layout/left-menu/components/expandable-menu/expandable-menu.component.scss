@@ -15,6 +15,7 @@
       opacity: 0.5;
       font-size: $font-size-xxs;
       font-family: "Roc-Grotesk medium";
+      text-transform: uppercase;
     }
   }
 
@@ -43,6 +44,7 @@
         opacity: 0.5;
         font-size: $font-size-xxs;
         font-family: "Roc-Grotesk medium";
+        text-transform: uppercase;
       }
       .drop-down {
         margin: 8px 0px;
@@ -91,12 +93,15 @@
         opacity: 0.5;
         font-size: $font-size-xxs;
         font-family: "Roc-Grotesk medium";
+        text-transform: uppercase;
       }
       .setting-container {
         display: flex;
         gap: 12px;
         padding: 8px;
         justify-content: left;
+        align-items: center;
+        cursor: pointer;
         .setting-icon {
           width: 15px;
         }
@@ -107,6 +112,10 @@
             font-family: "Roc-Grotesk regular";
           }
         }
+      }
+      .active-item {
+        background: $blue-linear-gradient;
+        border-radius: 4px;
       }
     }
   }
@@ -120,6 +129,7 @@
       opacity: 0.5;
       font-size: $font-size-xxs;
       font-family: "Roc-Grotesk medium";
+      text-transform: uppercase;
     }
     .user-content,
     .layout-content {

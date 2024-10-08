@@ -1,12 +1,14 @@
 @media screen and (max-width: 1600px) {
   .tabs-wrapper {
     .tabs {
+      width: 30%;
       .channel-select {
         flex-direction: column;
       }
     }
     .tabs-content {
       padding: 10px;
+      width: 70%;
       .tab-content-header {
         margin-bottom: 10px;
       }
